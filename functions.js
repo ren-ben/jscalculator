@@ -4,7 +4,6 @@
 */
 /********************************************************************************/
 
-
 /********************************************************************************/
 /*
 Function inZahlUmwandeln(wert)
@@ -20,6 +19,7 @@ alert() Meldung ausgegeben "Beim eingegebenen Wert handelt es sich nicht um eine
 Zahl oder Ziffer"
 */
 /********************************************************************************/
+/*
 function inZahlUmwandeln(wert)
 {
 ....
@@ -28,6 +28,8 @@ function inZahlUmwandeln(wert)
 return numwert;
 }
 
+
+/********************************************************************************/
 /*
 Function berechne(wert1,wert2,operation)
 Beschreibung der Parameter:
@@ -37,9 +39,9 @@ Beschreibung:
 */
 /********************************************************************************/
 
-
+/********************************************************************************/
 /*
-Function speicherInArray(wert1,wert2,operation, ergebnis)
+Function speicherInHistoryArray(wert1,wert2,ergebnis)
 */
 /********************************************************************************/
 /*
@@ -50,28 +52,24 @@ Beschreibung:
 */
 /********************************************************************************/
 
-
-
+/********************************************************************************/
 /*
-Function neueRechnungOdUebersicht(neu)
-*/
+Function speicherInMemoryArray(wert)
+
 /********************************************************************************/
 /*
 Beschreibung der Parameter:
 ... Hier ausfüllen ...
-*/
-/********************************************************************************/
-
-
-/*
-Function ausgabe()
-/********************************************************************************/
-/*
-Beschreibung der Parameter:
+Beschreibung:
 ... Hier ausfüllen ...
 */
 /********************************************************************************/
 
+/********************************************************************************/
+/*
+Function ausgabe(wert)
+*/
+/********************************************************************************/
 /*
 Einschränkung: Die Ausgabe kann auf viele verschiedene Arten erfolgen. 
 Ihr sollt eine der 3 folgenden auswählen:
@@ -89,5 +87,4 @@ Beschreibung der Parameter:
 ... Hier ausfüllen ...
 Beschreibung:
 ... Hier ausfüllen ...
-
-/********************************************************************************/
+*/
