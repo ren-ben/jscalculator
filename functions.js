@@ -1,3 +1,15 @@
+import {
+  list,
+  divText,
+  errText,
+  ask,
+  zahlText,
+  opText,
+  noNumber,
+  ausgabeHTML,
+} from "./variables.js";
+
+//variable für die Rechenoperationen
 let berechne = {
   "+": function (x, y) {
     return x + y;
@@ -14,11 +26,15 @@ let berechne = {
   "%": function (x, y) {
     return x % y;
   },
-  e: function () {
-    return "exit";
+  "^": function (x, y) {
+    return x ** y;
+  },
+  sqrt: function (x, y) {
+    return x ** (1 / y);
   },
 };
 
+// die ausgabe-Funktion
 function output() {
   let output = "";
   for (let i = 0; i < list.length; i++) {
@@ -30,56 +46,50 @@ function output() {
       list[i][2] +
       " = " +
       list[i][3] +
-      "\n\n";
+      "\n----------\n";
   }
   alert(output);
 }
 
+//Konvertierungsfunktion
 function ctn(wert) {
   var numwert = Number(wert);
   if (isNaN(numwert)) {
-    alert(
-      "Beim eingegebenen Wert handelt es sich nicht um eine Zahl oder Ziffer"
-    );
+    alert(noNumber);
   }
   return numwert;
 }
 
+//Ausgabe-Funktion für die Webseite
 function ausgabe(wert) {
-  document.write("<h2>Das Ergebnis lautet:</h2>" + wert);
+  document.write(ausgabeHTML + wert);
 }
 
+// Funktion für das Speichern der Rechenoperationen in einem Array
 function speicherInHistoryArray(wert1, wert2, operator, ergebnis) {
   var historyArray = [wert1, operator, wert2, ergebnis];
   return historyArray;
 }
 
-function speicherInMemoryArray(wert) {
-  var memoryArray = [wert];
-  return memoryArray;
-}
-
-let list = [];
+// Hauptprogramm
+let choice = "w";
 do {
-  let zahl1 = prompt("Bitte geben Sie eine Zahl ein: ");
-  let zahl2 = prompt("Bitte geben Sie eine Zahl ein: ");
-  let operator = prompt("Bitte geben Sie einen Operator ein: ");
-  //check zahl1 and zahl2 and operator that there is no error when the user enters a wrong operator and also things like divide by 0 and so on
-
+  let zahl1 = prompt(zahlText);
+  let zahl2 = prompt(zahlText);
+  let operator = prompt(opText);
+  let result;
   try {
-    let result = berechne[operator](ctn(zahl1), ctn(zahl2));
+    result = berechne[operator](ctn(zahl1), ctn(zahl2));
   } catch (error) {
-    let result = "Error";
     if (ctn(zahl1) / ctn(zahl2) == Infinity) {
-      alert("Division durch 0 nicht möglich");
+      alert(divText);
     } else {
-      alert("Ein Fehler ist aufgetreten!");
+      alert(errText);
     }
   }
   list.push(speicherInHistoryArray(zahl1, zahl2, operator, result));
-  ausgabe(result);
-  choice = prompt("Möchten Sie die Rechenoperationen aufhören? (e für ja)");
-  if (choice == "o") {
+  choice = prompt(ask);
+  if (choice === "o") {
     output();
   }
-} while (choice != "e");
+} while (choice !== "e");
