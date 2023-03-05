@@ -6,7 +6,7 @@ function ctn(x) {
   return Number(x);
 }
 
-var math_it_up = {
+let math_it_up = {
   "+": function (x, y) {
     return ctn(x) + ctn(y);
   },
@@ -23,7 +23,5 @@ var math_it_up = {
     return ctn(x) % ctn(y);
   },
 };
-var operator = prompt("Bitte geben Sie einen Operator ein: ");
-var result = math_it_up[operator](zahl, zahl2);
 
 alert(result);
