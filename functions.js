@@ -78,14 +78,11 @@ do {
   let zahl2 = prompt(zahlText);
   let operator = prompt(opText);
   let result;
-  try {
-    result = berechne[operator](ctn(zahl1), ctn(zahl2));
-  } catch (error) {
-    if (ctn(zahl1) / ctn(zahl2) == Infinity) {
-      alert(divText);
-    } else {
-      alert(errText);
-    }
+  result = berechne[operator](ctn(zahl1), ctn(zahl2));
+  if (ctn(zahl1) / ctn(zahl2) == Infinity) {
+    alert("Sie dürfen nicht durch 0 teilen!");
+  } else {
+    alert(divText);
   }
   list.push(speicherInHistoryArray(zahl1, zahl2, operator, result));
   choice = prompt(ask);
